@@ -18,19 +18,8 @@ public class Demo {
 
 		
 		// get the base-url (ie: 'http://gamma.firebase.com/username')
-		String firebase_baseUrl = null;
-		for( String s : args ) {
+		String firebase_baseUrl = "https://manga-439bf.firebaseio.com/";
 
-			if( s == null || s.trim().isEmpty() ) continue;
-			if( s.trim().split( "=" )[0].equals( "baseUrl" ) ) {
-				firebase_baseUrl = s.trim().split( "=" )[1];
-			}
-		}
-		if( firebase_baseUrl == null || firebase_baseUrl.trim().isEmpty() ) {
-			throw new IllegalArgumentException( "Program-argument 'baseUrl' not found but required" );
-		}
-
-		
 		// create the firebase
 		Firebase firebase = new Firebase( firebase_baseUrl );
 		
@@ -86,7 +75,16 @@ public class Demo {
 		System.out.println( "\n\nResult of DELETE (for the test-DELETE):\n" + response );
 		response = firebase.get( "test-DELETE" );
 		System.out.println( "\n\nResult of GET (for the test-DELETE):\n" + response );
-		
+
+
+
+
+		Map<String, Object> patchMap = new LinkedHashMap<String, Object>();
+		patchMap.put( "PUT-root", "This was PATCH into the fb4jDemo-root" );
+		response = firebase.patch( patchMap );
+		System.out.println( "\n\nResult of PATCH (for the test-PATCH to fb4jDemo-root):\n" + response );
+		System.out.println("\n");
+
 	}
 	
 }
