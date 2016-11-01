@@ -9,7 +9,7 @@ public class LeechRunnable implements Runnable{
 
 	@Override
 	public void run() {
-		Story story = new Story(storyUrl);
+		StoryLeech story = new StoryLeech(storyUrl);
 		
 	}
 

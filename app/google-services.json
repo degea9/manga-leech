@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "154024078210",
+    "firebase_url": "https://manga-f4c37.firebaseio.com",
+    "project_id": "manga-f4c37",
+    "storage_bucket": "manga-f4c37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154024078210:android:3a83844e45722ec3",
+        "android_client_info": {
+          "package_name": "manga.android.tuandang.com.manga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154024078210-a2d4tsaks9ivbvolss6ftikd6j60d39i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3A8K_nf3Wby-vAoJujPJwBH0FCrQlLPE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

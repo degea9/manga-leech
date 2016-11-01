@@ -1,7 +1,12 @@
-package com.tuandang.manga.leech;
+package manga.android.tuandang.com.manga.data.model;
+
+/**
+ * Created by APC on 11/1/2016.
+ */
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * Created by APC on 10/31/2016.
@@ -13,15 +18,29 @@ public class Story {
     private String author;
     private String status;
 
-    public String getViewCount() {
+    public void setChapters(Map<String, String> chapters) {
+        this.chapters = chapters;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    private String thumbnail;
+
+    public int getViewcount() {
         return viewCount;
     }
 
-    public void setViewCount(String viewCount) {
-        this.viewCount = viewCount;
+    public void setViewcount(int viewcount) {
+        this.viewCount = viewcount;
     }
 
-    private String viewCount;
+    private int viewCount;
 
     public String getDescription() {
         return description;
@@ -85,16 +104,28 @@ public class Story {
 
     private String genre;
 
-    public Map<String,Object> toMap(){
-        Map<String,Object> map = new HashMap<>();
-        map.put("title",title);
-        map.put("author",author);
-        map.put("genre",genre);
-        map.put("leechUrl",leechUrl);
-        map.put("description",description);
-        map.put("viewcount",viewCount);
-        map.put("status",status);
-        map.put("chapters",chapters);
-        return map;
+//    public Map<String,Object> toMap(){
+//        Map<String,Object> map = new HashMap<>();
+//        map.put("title",title);
+//        map.put("author",author);
+//        map.put("genre",genre);
+//        map.put("leechUrl",leechUrl);
+//        map.put("description",description);
+//        map.put("viewcount",viewcount);
+//        map.put("status",status);
+//        map.put("chapters",chapters);
+//        return map;
+//    }
+
+    public void printChapterList(){
+        if(chapters!=null){
+            for (String name: chapters.keySet()){
+                String key =name.toString();
+                String value = chapters.get(name).toString();
+                System.out.println(key + " " + value);
+
+            }
+        }
     }
 }
+
