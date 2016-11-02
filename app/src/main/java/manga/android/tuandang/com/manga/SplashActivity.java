@@ -1,10 +1,12 @@
 package manga.android.tuandang.com.manga;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import manga.android.tuandang.com.manga.base.BaseActivity;
-import manga.android.tuandang.com.manga.mangalist.MangaListActivity;
+import manga.android.tuandang.com.manga.mangalist.StoryListActivity;
 
 public class SplashActivity extends BaseActivity {
 
@@ -12,6 +14,13 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        navigateTo(MangaListActivity.class);
+        enableOffline();
+        navigateTo(StoryListActivity.class);
+    }
+
+    private void enableOffline() {
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        DatabaseReference scoresRef = FirebaseDatabase.getInstance().getReference("stories");
+        scoresRef.keepSynced(true);
     }
 }

@@ -42,7 +42,7 @@ public class StoriesAdapter extends FirebaseRecyclerAdapter<Story, StoriesAdapte
     }
 
     @Override
-    protected void populateViewHolder(StoriesViewHolder viewHolder, Story story, final int position) {
+    protected void populateViewHolder(StoriesViewHolder viewHolder, final Story story, final int position) {
         //LogUtil.d(TAG, "model.getAvatar " + model.getAvatar());
         //LogUtil.d(TAG, "model.getUsername " + model.getUsername());
         story.printChapterList();
@@ -51,7 +51,15 @@ public class StoriesAdapter extends FirebaseRecyclerAdapter<Story, StoriesAdapte
         viewHolder.tvAuthor.setText(story.getAuthor());
         if (story.getThumbnail() != null)
             Picasso.with(mContext).load(story.getThumbnail()).resize(80, 80).centerInside().into(viewHolder.ivThumbnail);
-
+        if (mListener != null) {
+            //register listener
+            viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListener.onClick(story);
+                }
+            });
+        }
     }
 
     static class StoriesViewHolder extends RecyclerView.ViewHolder {
@@ -63,12 +71,23 @@ public class StoriesAdapter extends FirebaseRecyclerAdapter<Story, StoriesAdapte
         TextView tvAuthor;
         @Bind(R.id.ivThumbnail)
         ImageView ivThumbnail;
-
+        View mView;
         public StoriesViewHolder(View view) {
             super(view);
+            mView = view;
             ButterKnife.bind(this, view);
+
         }
     }
 
+    public void setListener(StoryClickListener listener) {
+        mListener = listener;
+    }
+
+    public StoryClickListener mListener;
+
+    public interface StoryClickListener {
+       void onClick(Story story);
+    }
 
 }

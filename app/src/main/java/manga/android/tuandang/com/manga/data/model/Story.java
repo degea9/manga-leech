@@ -4,6 +4,7 @@ package manga.android.tuandang.com.manga.data.model;
  * Created by APC on 11/1/2016.
  */
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import java.util.Map;
  * Created by APC on 10/31/2016.
  */
 
-public class Story {
+public class Story implements Serializable{
     private String leechUrl;
     private String title;
     private String author;

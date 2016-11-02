@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Manga</string>
+
+    <!-- story list begin-->
+    <string name="loading">Đang tải,vui lòng đợi...</string>
+    <!-- story list end-->
+
+    <!-- story detail begin-->
+    <string name="intro">Giới thiệu</string>
+    <string name="genre">Thể loại</string>
+    <string name="description">Mô tả</string>
+    <!-- story detail end-->
 </resources>
