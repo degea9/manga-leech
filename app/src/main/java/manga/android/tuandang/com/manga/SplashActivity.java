@@ -6,7 +6,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import manga.android.tuandang.com.manga.base.BaseActivity;
-import manga.android.tuandang.com.manga.mangalist.StoryListActivity;
+import manga.android.tuandang.com.manga.storylist.StoryListActivity;
 
 public class SplashActivity extends BaseActivity {
 

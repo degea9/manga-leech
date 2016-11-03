@@ -11,6 +11,7 @@ import manga.android.tuandang.com.manga.R;
 import manga.android.tuandang.com.manga.base.BaseActivity;
 import manga.android.tuandang.com.manga.data.model.Story;
 import manga.android.tuandang.com.manga.storydetail.adapter.ViewPagerAdapter;
+import manga.android.tuandang.com.manga.storydetail.fragments.ChapterListFragment;
 import manga.android.tuandang.com.manga.storydetail.fragments.StoryDetailFragment;
 
 public class StoryDetailActivity extends BaseActivity {
@@ -41,7 +42,7 @@ public class StoryDetailActivity extends BaseActivity {
             mStory = (Story) getIntent().getSerializableExtra(StoryDetailFragment.STORY_OBJECT_KEY);
             ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
             adapter.addFragment(StoryDetailFragment.newInstance(mStory), getString(R.string.intro));
-            //adapter.addFragment(new TwoFragment(), "TWO");
+            adapter.addFragment(ChapterListFragment.newInstance(mStory), getString(R.string.chapters));
             //adapter.addFragment(new ThreeFragment(), "THREE");
             viewPager.setAdapter(adapter);
         }

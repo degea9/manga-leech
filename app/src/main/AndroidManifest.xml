@@ -15,8 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mangalist.StoryListActivity" />
-        <activity android:name=".storydetail.StoryDetailActivity"></activity>
+        <activity android:name=".storylist.StoryListActivity" />
+        <activity android:name=".storydetail.StoryDetailActivity" />
+        <activity android:name=".chapterdetail.ChapterDetailActivity"></activity>
     </application>
 
 </manifest>

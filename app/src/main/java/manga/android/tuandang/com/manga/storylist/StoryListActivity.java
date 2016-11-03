@@ -1,4 +1,4 @@
-package manga.android.tuandang.com.manga.mangalist;
+package manga.android.tuandang.com.manga.storylist;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 import manga.android.tuandang.com.manga.R;
 import manga.android.tuandang.com.manga.base.BaseActivity;
 import manga.android.tuandang.com.manga.data.model.Story;
-import manga.android.tuandang.com.manga.mangalist.adapter.StoriesAdapter;
+import manga.android.tuandang.com.manga.storylist.adapter.StoriesAdapter;
 import manga.android.tuandang.com.manga.storydetail.StoryDetailActivity;
 import manga.android.tuandang.com.manga.storydetail.fragments.StoryDetailFragment;
 
@@ -32,7 +32,7 @@ public class StoryListActivity extends BaseActivity {
     private void setUpRecyclerView() {
         showProgressDialog(getString(R.string.loading));
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("stories");
-        final StoriesAdapter adapter = new StoriesAdapter(this,ref);
+        final StoriesAdapter adapter = new StoriesAdapter(this,ref.limitToFirst(100));
         rvListManga.setLayoutManager(new LinearLayoutManager(this));
         adapter.setListener(mListener);
         rvListManga.setAdapter(adapter);

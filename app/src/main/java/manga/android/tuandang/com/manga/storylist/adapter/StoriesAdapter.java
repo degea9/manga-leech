@@ -1,4 +1,4 @@
-package manga.android.tuandang.com.manga.mangalist.adapter;
+package manga.android.tuandang.com.manga.storylist.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -20,8 +20,6 @@ import manga.android.tuandang.com.manga.utils.LogUtil;
 /**
  * Created by APC on 11/1/2016.
  */
-
-
 
 
 public class StoriesAdapter extends FirebaseRecyclerAdapter<Story, StoriesAdapter.StoriesViewHolder> {
