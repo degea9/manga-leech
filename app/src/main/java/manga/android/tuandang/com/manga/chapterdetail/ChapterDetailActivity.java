@@ -40,7 +40,7 @@ public class ChapterDetailActivity extends BaseActivity {
     private void setUpViewPager() {
         if(getIntent()!=null){
             String key = getIntent().getStringExtra(CHAPTER_KEY);
-            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("chapters").child(key).child("chapters");
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("chapters").child(key);
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
