@@ -32,7 +32,7 @@ public class StoryListActivity extends BaseActivity {
     private void setUpRecyclerView() {
         showProgressDialog(getString(R.string.loading));
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("stories");
-        final StoriesAdapter adapter = new StoriesAdapter(this,ref.limitToFirst(100));
+        final StoriesAdapter adapter = new StoriesAdapter(this,ref.orderByChild("viewCount").limitToLast(100));
         rvListManga.setLayoutManager(new LinearLayoutManager(this));
         adapter.setListener(mListener);
         rvListManga.setAdapter(adapter);

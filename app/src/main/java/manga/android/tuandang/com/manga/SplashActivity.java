@@ -19,8 +19,8 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void enableOffline() {
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        DatabaseReference scoresRef = FirebaseDatabase.getInstance().getReference("stories");
-        scoresRef.keepSynced(true);
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        //DatabaseReference scoresRef = FirebaseDatabase.getInstance().getReference("stories");
+        //scoresRef.keepSynced(true);
     }
 }

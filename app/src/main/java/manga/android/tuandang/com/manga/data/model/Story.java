@@ -5,7 +5,7 @@ package manga.android.tuandang.com.manga.data.model;
  */
 
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 
@@ -69,7 +69,7 @@ public class Story implements Serializable{
         this.chapters.put(chaptername,id);
     }
 
-    private Map<String,String> chapters = new HashMap<>();
+    private Map<String,String> chapters = new LinkedHashMap<>();
 
     public String getLeechUrl() {
         return leechUrl;

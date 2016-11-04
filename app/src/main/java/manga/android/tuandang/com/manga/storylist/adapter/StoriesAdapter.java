@@ -54,6 +54,7 @@ public class StoriesAdapter extends FirebaseRecyclerAdapter<Story, StoriesAdapte
             viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    LogUtil.d(TAG,"populateViewHolder "+getRef(position).getKey());
                     mListener.onClick(story);
                 }
             });
