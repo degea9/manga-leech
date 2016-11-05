@@ -9,6 +9,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,17 +46,33 @@ public class ChapterDetailActivity extends BaseActivity {
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    showProgressDialog("dang load");
                     Chapter chapter = dataSnapshot.getValue(Chapter.class);
                     LogUtil.d(TAG,"onDataChange chapterUrl: "+chapter.getChapterUrl());
                     LogUtil.d(TAG,"onDataChange storyUrl: "+chapter.getStoryUrl());
                     LogUtil.d(TAG,"onDataChange key: "+dataSnapshot.getKey());
                     List<String> images = chapter.getChapters();
                     ImagePagerAdapter adapter = new ImagePagerAdapter(getSupportFragmentManager(),images);
+                    viewPager.setOffscreenPageLimit(5);
+                    for(int i=0;i<images.size();i++){
+                        Picasso.with(getApplicationContext()).load(images.get(i)).fetch(new Callback() {
+                            @Override
+                            public void onSuccess() {
+                                LogUtil.d(TAG,"Picasso onSuccess: ");
+                                dissmissProgressDialog();
+                            }
+
+                            @Override
+                            public void onError() {
+
+                            }
+                        });
+                    }
                     viewPager.setAdapter(adapter);
-//                    for(String key:images) {
-//                        LogUtil.d(TAG, "onDataChange data key: " + key);
-//                        //LogUtil.d(TAG, "onDataChange data value : " + images.get(key));
-//                    }
+                    for(String key:images) {
+                        LogUtil.d(TAG, "onDataChange data key: " + key);
+                        //LogUtil.d(TAG, "onDataChange data value : " + images.get(key));
+                    }
                 }
 
                 @Override

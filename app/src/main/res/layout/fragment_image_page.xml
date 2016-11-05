@@ -5,7 +5,7 @@
     tools:context="manga.android.tuandang.com.manga.chapterdetail.ImagePageFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ImageView
+    <manga.android.tuandang.com.manga.customview.TouchImageView
         android:id="@+id/image_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

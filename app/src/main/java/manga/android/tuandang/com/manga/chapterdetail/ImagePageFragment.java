@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import manga.android.tuandang.com.manga.R;
+import manga.android.tuandang.com.manga.customview.TouchImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +28,7 @@ public class ImagePageFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     @Bind(R.id.image_page)
-    ImageView ivPage;
+    TouchImageView ivPage;
 
 
     public ImagePageFragment() {
@@ -69,7 +70,8 @@ public class ImagePageFragment extends Fragment {
     }
 
     private void displayImage() {
-        Picasso.with(getContext()).load(mParam1).into(ivPage);
+        ivPage.setMaxZoom(1.8f);
+        Picasso.with(getContext()).load(mParam1).resize(600,800).centerInside().into(ivPage);
     }
 
 }
